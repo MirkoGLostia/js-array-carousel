@@ -42,7 +42,11 @@ btnNext.addEventListener("click",
     function () {
 
         containerImage[imagePosition].classList.remove("active");
-        
+
+        if (imagePosition == (containerImage.length) - 1) {
+            imagePosition = -1;
+        }
+
         imagePosition++;
 
         containerImage[imagePosition].classList.add("active");
@@ -56,6 +60,10 @@ btnPrevious.addEventListener("click",
     function () {
 
         containerImage[imagePosition].classList.remove("active");
+
+        if (imagePosition == 0) {
+            imagePosition = containerImage.length;
+        }
         
         imagePosition--;
 
