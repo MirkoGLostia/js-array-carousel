@@ -10,7 +10,7 @@ const btnNext = document.getElementById("next-image");
 
 
 
-// creazione container immagini
+// creazione container immagini principali
 
 for (let i = 0; i < image.length; i++) {
     
@@ -25,14 +25,44 @@ for (let i = 0; i < image.length; i++) {
 }
 
 
+// creazione container immagini side
+
+for (let i = 0; i < image.length; i++) {
+    
+    const cicleImage = image[i];
+
+    const div = document.createElement('div');
+
+    div.innerHTML = 
+    `
+    <div class="opacity"></div>
+    <img src="img/${cicleImage}" alt="immagine">
+    `; 
+    
+    document.getElementById("side-bar-container").append(div);
+    
+}
+
+
+
 
 // selezione elementi creati
 
 imagePosition = 0;
 
-const containerImage = document.querySelectorAll("#container div");
 
-containerImage[imagePosition].classList.add("active");
+    // main images
+    const containerImage = document.querySelectorAll("#container div");
+
+    containerImage[imagePosition].classList.add("active");
+
+
+    // side images
+    const containerSideImage = document.querySelectorAll("#side-bar-container div div");
+
+    console.log(containerSideImage);
+
+    containerSideImage[imagePosition].classList.remove("opacity");
 
 
 // funzionalità pulsanti
@@ -43,6 +73,8 @@ btnNext.addEventListener("click",
 
         containerImage[imagePosition].classList.remove("active");
 
+        containerSideImage[imagePosition].classList.add("opacity");
+
         if (imagePosition == (containerImage.length) - 1) {
             imagePosition = -1;
         }
@@ -50,6 +82,8 @@ btnNext.addEventListener("click",
         imagePosition++;
 
         containerImage[imagePosition].classList.add("active");
+
+        containerSideImage[imagePosition].classList.remove("opacity");
 
     }
 )
@@ -61,6 +95,8 @@ btnPrevious.addEventListener("click",
 
         containerImage[imagePosition].classList.remove("active");
 
+        containerSideImage[imagePosition].classList.add("opacity");
+
         if (imagePosition == 0) {
             imagePosition = containerImage.length;
         }
@@ -68,6 +104,8 @@ btnPrevious.addEventListener("click",
         imagePosition--;
 
         containerImage[imagePosition].classList.add("active");
+
+        containerSideImage[imagePosition].classList.remove("opacity");
 
     }
 )
