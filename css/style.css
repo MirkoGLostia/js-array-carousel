@@ -6,6 +6,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    text-align: center;
 }
 
 
@@ -14,10 +15,29 @@
 *MAIN*
 ******/
 
+button[id$="-image"] {
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: #cccccc;
+    font-size: 20px;
+}
+
+button[id^="previous"] {
+    position: relative;
+    top: 40px;
+}
+
+button[id^="next"] {
+    position: relative;
+    bottom: 40px;
+}
+
 #container > div {
     display: none;
     text-align: center;
-    margin: 100px auto;
+    margin: 0 auto;
     width: 50%;
     height: 30vw;
 }
