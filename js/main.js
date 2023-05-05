@@ -10,39 +10,31 @@ const btnNext = document.getElementById("next-image");
 
 
 
-// creazione container immagini principali
+// creazione container immagini principali e side
 
 for (let i = 0; i < image.length; i++) {
     
     const cicleImage = image[i];
 
+    // principali
     const div = document.createElement('div');
 
     div.innerHTML = `<img src="img/${cicleImage}" alt="immagine">`; 
 
     document.getElementById("container").append(div);
-    
-}
 
+    // side
+    const divSecond = document.createElement('div');
 
-// creazione container immagini side
-
-for (let i = 0; i < image.length; i++) {
-    
-    const cicleImage = image[i];
-
-    const div = document.createElement('div');
-
-    div.innerHTML = 
+    divSecond.innerHTML = 
     `
     <div class="opacity"></div>
     <img src="img/${cicleImage}" alt="immagine">
     `; 
     
-    document.getElementById("side-bar-container").append(div);
+    document.getElementById("side-bar-container").append(divSecond);
     
 }
-
 
 
 
