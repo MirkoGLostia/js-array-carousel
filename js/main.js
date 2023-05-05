@@ -1,6 +1,6 @@
 // variabili
 
-let firstImage, imagePosition;
+let imagePosition = 0;
 
 const image = ["01.webp", "02.webp", "03.webp", "04.webp", "05.webp"]
 
@@ -40,9 +40,6 @@ for (let i = 0; i < image.length; i++) {
 
 // selezione elementi creati
 
-imagePosition = 0;
-
-
     // main images
     const containerImage = document.querySelectorAll("#container div");
 
@@ -59,9 +56,32 @@ imagePosition = 0;
 
 // funzionalità pulsanti
 
-// next
-btnNext.addEventListener("click",
-    function () {
+
+    //previous
+    btnPrevious.addEventListener("click",
+        function () {
+
+            containerImage[imagePosition].classList.remove("active");
+
+            containerSideImage[imagePosition].classList.add("opacity");
+
+            if (imagePosition == 0) {
+                imagePosition = containerImage.length;
+            }
+            
+            imagePosition--;
+
+            containerImage[imagePosition].classList.add("active");
+
+            containerSideImage[imagePosition].classList.remove("opacity");
+
+        }
+    )
+
+
+    // next
+    btnNext.addEventListener("click",
+        function () {
 
         containerImage[imagePosition].classList.remove("active");
 
@@ -77,29 +97,7 @@ btnNext.addEventListener("click",
 
         containerSideImage[imagePosition].classList.remove("opacity");
 
-    }
-)
-
-
-//previous
-btnPrevious.addEventListener("click",
-    function () {
-
-        containerImage[imagePosition].classList.remove("active");
-
-        containerSideImage[imagePosition].classList.add("opacity");
-
-        if (imagePosition == 0) {
-            imagePosition = containerImage.length;
         }
-        
-        imagePosition--;
-
-        containerImage[imagePosition].classList.add("active");
-
-        containerSideImage[imagePosition].classList.remove("opacity");
-
-    }
-)
+    )
 
 
